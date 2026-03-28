@@ -95,6 +95,34 @@
   .vazne-napomene-body ul{margin:6px 0 10px 18px;padding:0;}
   .vazne-napomene-body li{font-size:.92em;line-height:1.6;color:var(--text);margin-bottom:6px;}
   .vazne-napomene-body p{font-size:.92em;line-height:1.6;color:var(--text);margin-bottom:6px;}
+
+  /* RECEPTI drawer styles */
+  .toc-recepti-header{background:var(--accent2);color:white;padding:11px 16px;
+    font-size:.85em;font-weight:700;letter-spacing:.04em;border-top:2px solid rgba(0,0,0,.1);}
+  .rec-cat{border-bottom:1px solid var(--border);}
+  .rec-cat:last-child{border-bottom:none;}
+  .rec-cat-sum{padding:10px 16px;cursor:pointer;list-style:none;
+    display:flex;align-items:center;font-weight:700;font-size:.88em;color:var(--primary-dark);
+    background:var(--section-bg);-webkit-tap-highlight-color:rgba(46,125,50,.08);user-select:none;}
+  .rec-cat-sum::-webkit-details-marker{display:none;}
+  .rec-cat-sum::after{content:'›';font-size:1.2em;color:var(--muted);transition:transform .2s;margin-left:auto;}
+  details[open]>.rec-cat-sum::after{transform:rotate(90deg);}
+  .rec-subcat{border-bottom:1px solid #eee;}
+  .rec-subcat:last-child{border-bottom:none;}
+  .rec-subcat-sum{padding:8px 16px 8px 24px;cursor:pointer;list-style:none;
+    display:flex;align-items:center;font-weight:600;font-size:.83em;color:var(--accent2);
+    background:#fff8f0;-webkit-tap-highlight-color:rgba(245,127,23,.08);user-select:none;}
+  .rec-subcat-sum::-webkit-details-marker{display:none;}
+  .rec-subcat-sum::after{content:'›';font-size:1.1em;color:var(--muted);transition:transform .2s;margin-left:auto;}
+  details[open]>.rec-subcat-sum::after{transform:rotate(90deg);}
+  .rec-list{list-style:none;padding:4px 0;background:white;}
+  .rec-list li{padding:6px 16px 6px 32px;font-size:.82em;color:var(--text);
+    border-bottom:1px solid #f5f5f5;line-height:1.4;}
+  .rec-list li:last-child{border-bottom:none;}
+  .rec-sublist{list-style:none;padding:4px 0;background:white;}
+  .rec-sublist li{padding:6px 16px 6px 40px;font-size:.82em;color:var(--text);
+    border-bottom:1px solid #f5f5f5;line-height:1.4;}
+  .rec-sublist li:last-child{border-bottom:none;}
 </style>
 </head>
 <body>
@@ -139,7 +167,289 @@
         <span class="toc-dates">20.04. - 26.04.2026</span>
       </summary>
       <ul class="toc-day-list"><li><a href="#week-4-ponedeljak" class="toc-day-link">Ponedeljak</a></li><li><a href="#week-4-utorak" class="toc-day-link">Utorak</a></li><li><a href="#week-4-sreda" class="toc-day-link">Sreda</a></li><li><a href="#week-4-cetvrtak" class="toc-day-link">Četvrtak</a></li><li><a href="#week-4-petak" class="toc-day-link">Petak</a></li><li><a href="#week-4-subota" class="toc-day-link">Subota</a></li><li><a href="#week-4-nedelja" class="toc-day-link">Nedelja</a></li></ul>
-    </details></div>
+    </details>
+
+    <div class="toc-recepti-header">🍴 RECEPTI</div>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">HLEB</summary>
+      <ul class="rec-list">
+        <li>Integralni pšenični hleb</li>
+        <li>Bezglutenski hleb</li>
+        <li>Integralni bezkvasni hleb</li>
+      </ul>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">DORUČAK</summary>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">SENDVIČI</summary>
+        <ul class="rec-sublist">
+          <li>Posni sendviči sa humusom i orašastim plodovima</li>
+          <li>Integralni tost sendvič</li>
+          <li>Pizza sendvič</li>
+          <li>Mediteranski sendvič</li>
+          <li>Vegetarijanski sendvič</li>
+          <li>Posni sendvič sa ribom</li>
+          <li>Sendvič sa povrćem i nemasnim sirom</li>
+          <li>Cheesecake sendvič</li>
+          <li>Fitt pršuta sendvič</li>
+          <li>Tuna sendvič</li>
+          <li>Integralni sendvič sa povrćem</li>
+          <li>Topli sendvič</li>
+          <li>Mediteranski sendvič sa tunjevinom</li>
+          <li>Avokado jaje tost</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">BRUSKETI</summary>
+        <ul class="rec-sublist">
+          <li>Integralni mediteranski brusketi</li>
+          <li>Integralni brusketi sa ella sirom i avokadom</li>
+          <li>Brusketi sa šunkom/pilećim/ćurećim prsima</li>
+          <li>Brusketi sa mladim sirom</li>
+          <li>Brusketi sa paradajzom i maslinama</li>
+          <li>Posni brusketi</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">JAJA</summary>
+        <ul class="rec-sublist">
+          <li>Obrok salata sa jajima</li>
+          <li>Omlet sa jajima, šunkom ili pilećim prsima i mladim sirom</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">NAMAZI</summary>
+        <ul class="rec-sublist">
+          <li>Posna pašteta</li>
+          <li>Posna pašteta sa tunjevinom</li>
+          <li>Veganski krem sir</li>
+          <li>Pileći/ćureći namaz</li>
+          <li>Namaz od patlidžana</li>
+          <li>Namaz od avokada i cherry paradajza</li>
+          <li>Ajvar namaz</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">OVSENE KAŠE</summary>
+        <ul class="rec-sublist">
+          <li>Quinoa kaša sa orasima i jabukama</li>
+          <li>Ovsena kaša sa pečenim breskvama i bademima</li>
+          <li>Ovsena kaša sa šumskim voćem</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">PALENTE, PROJE, MAFINI</summary>
+        <ul class="rec-sublist">
+          <li>Posna palenta sa sosom</li>
+          <li>Palenta sa sirom i paradajzom</li>
+          <li>Proja</li>
+          <li>Proja sa ajvarom</li>
+          <li>Proja od heljde sa tikvicama, blitvom i feta sirom</li>
+          <li>Mafini sa keljom i avokadom</li>
+          <li>Mafini sa grizom i jabukom</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">TESTENINE ZA DORUČAK</summary>
+        <ul class="rec-sublist">
+          <li>Integralna testenina sa šampinjonima</li>
+          <li>Integralne testenine sa sirom</li>
+          <li>Makarone sa sirom</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">PITE</summary>
+        <ul class="rec-sublist">
+          <li>Pita od heljdinih kora sa jabukama i bundevom</li>
+          <li>Pita od heljdinih kora sa višnjama</li>
+          <li>Pita sa kupinama/malinama i bademima</li>
+          <li>Pita sa sirom i pilećim prsima</li>
+          <li>Pita od tikvica</li>
+          <li>Pita sa heljdinim korama i sirom</li>
+          <li>Pita sa heljdinim korama i šampinjonima</li>
+          <li>Pita zeljanica</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">TORTILJE</summary>
+        <ul class="rec-sublist">
+          <li>Pizza tortilja</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">PALAČINKE</summary>
+        <ul class="rec-sublist">
+          <li>Slane palačinke od ovsenog i kokosovog brašna</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">SLATKI DORUČAK</summary>
+        <ul class="rec-sublist">
+          <li>Veganske palačinke od heljde sa borovnicama</li>
+          <li>Zdrave palačinke sa domaćom nutelom</li>
+          <li>Palačinke od integralnog brašna</li>
+        </ul>
+      </details>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">UŽINE</summary>
+      <ul class="rec-list">
+        <li>Banana i kikiriki rolat</li>
+        <li>Proteinski šejk</li>
+        <li>Voćna salata</li>
+        <li>Vitaminska salata</li>
+        <li>Domaće bademovo mleko</li>
+        <li>Smuti od badema i čokolade</li>
+        <li>Zeleni smoothie sa spirulinom i avokadom</li>
+        <li>Đumbir banana smuti</li>
+        <li>Multivitaminski smuti</li>
+        <li>Vitamin C buster</li>
+        <li>Imuno buster smuti</li>
+        <li>Skin smuti</li>
+        <li>Šareni smuti</li>
+        <li>Jabuka orah smuti</li>
+        <li>Badem, borovnica, spanać smuti</li>
+        <li>Zeleni detox smuti</li>
+        <li>Šumsko voće smuti</li>
+        <li>Nutrifit zeleni smoothie</li>
+        <li>Nutrifit smoothie od nara i jabuke</li>
+        <li>Nutrifit smoothie od kivija i jabuke</li>
+      </ul>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">ČORBE / SUPE / POTAŽI</summary>
+      <ul class="rec-list">
+        <li>Potaž od šargarepe sa kikiriki puterom</li>
+        <li>Čorba od batata i kikiriki putera sa spanaćem</li>
+        <li>Kremasti potaž od karfiola</li>
+      </ul>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">KUVANA JELA</summary>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">KUVANA JELA SA MESOM</summary>
+        <ul class="rec-sublist">
+          <li>Ćureće ćufte</li>
+          <li>Gulaš sa piletinom</li>
+          <li>Musaka od tikvica sa mlevenom ćuretinom</li>
+        </ul>
+      </details>
+      <details class="rec-subcat">
+        <summary class="rec-subcat-sum">KUVANA JELA BEZ MESA</summary>
+        <ul class="rec-sublist">
+          <li>Quinoa pilav sa povrćem</li>
+          <li>Povrćni stir-fry sa tofuom</li>
+          <li>Turski punjeni patlidžan</li>
+          <li>Pečeni brokoli i karfiol sa tahini sosom</li>
+          <li>Zapečeni karfiol sa sirom</li>
+          <li>Jaja sa spanaćem</li>
+          <li>Slane kuglice od tikvica</li>
+          <li>Boranija sa bademima na belom luku</li>
+          <li>Punjene tikvice posne</li>
+          <li>Ćufte od pirinča i grilovanog povrća</li>
+          <li>Punjene paprike pirinčem i sočivom</li>
+          <li>Punjene tikvice sa pirinčem i leblebijom</li>
+          <li>Pljeskavice od povrća</li>
+          <li>Pljeskavice od prosa</li>
+        </ul>
+      </details>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">JELA OD MESA</summary>
+      <ul class="rec-list">
+        <li>Pileći burito</li>
+        <li>Grilovana piletina/ćuretina sa povrćem i humusom</li>
+        <li>Piletina sa brokolijem u rerni</li>
+        <li>Pileći burgeri</li>
+        <li>Rolovana punjena piletina</li>
+        <li>Piletina u sosu od ajvara</li>
+      </ul>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">JELA OD POVRĆA</summary>
+      <ul class="rec-list">
+        <li>Zapečeni batat punjen avokadom i brokolijem</li>
+        <li>Rolnice od tikvica, povrća i sira</li>
+        <li>Karfiol sa domaćim pesto prelivom i orašastim plodovima</li>
+        <li>Lagani tofu s pirinčem i povrćem uz đumbir-šargarepa dresing</li>
+      </ul>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">PASTE</summary>
+      <ul class="rec-list">
+        <li>Vege pasta</li>
+        <li>Nudle sa susamom i baby spanaćem i piletinom</li>
+        <li>Bezglutenske paste sa graškom</li>
+        <li>Karbonara pasta</li>
+        <li>Pirinčane nudle sa povrćem u prelivu od susama</li>
+      </ul>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">RIBE</summary>
+      <ul class="rec-list">
+        <li>Pečena riba sa limunom i biljem</li>
+        <li>Losos sa limunom i prelivom od belog luka i mirođije</li>
+        <li>Oslić na tavi</li>
+      </ul>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">OBROK SALATE SA MESOM ILI RIBOM</summary>
+      <ul class="rec-list">
+        <li>Piletina/ćuretina sa mediteranskim povrćem</li>
+        <li>Pečena ćuretina s brokolijem</li>
+        <li>Pohovane lignje sa zelenom salatom</li>
+        <li>Salata sa pršutom</li>
+        <li>Proteinska salata sa tunjevinom i mladim sirom</li>
+      </ul>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">OBROK SALATE BEZ MESA</summary>
+      <ul class="rec-list">
+        <li>Cezar salata sa leblebijom</li>
+        <li>Tofu salata sa kikiriki puterom</li>
+        <li>Salata od avokada i graška</li>
+        <li>Zapečeni karfiol sa sirom</li>
+        <li>Salata od kinoe i povrća</li>
+        <li>Tempeh salata</li>
+        <li>Salata sa kinoom, leblebijama i pomorandžom</li>
+        <li>Obrok salata sa keljom i pirinčem i dressing od limuna</li>
+        <li>Kinoa salata sa voćem</li>
+        <li>Salata od kinoe i avokada</li>
+        <li>Proteinska salata sa leblebijama</li>
+        <li>Pečena brokoli i karfiol sa tahini sosom</li>
+      </ul>
+    </details>
+
+    <details class="rec-cat">
+      <summary class="rec-cat-sum">SLATKIŠI NA ZDRAV NAČIN</summary>
+      <ul class="rec-list">
+        <li>Bezglutenski mafini sa bundevom</li>
+        <li>Granola bar od kokosa i badema</li>
+        <li>Zdrava topla čokolada</li>
+        <li>Zdrava RAW torta od lešnika i čokolade</li>
+        <li>Sutlijaš</li>
+        <li>Čokoladni puding sa pomorandžom</li>
+        <li>Šnenokle</li>
+        <li>Tahini keks sa narom</li>
+        <li>Brauni od badema i višanja</li>
+        <li>Bananini kolačići sa ovsenim brašnom</li>
+        <li>Chia puding sa jagodama</li>
+        <li>Sirovi čokoladni puding sa narandžom</li>
+      </ul>
+    </details>
+
+  </div>
 </nav>
 <main id="content">
 <div class="vazne-napomene">
