@@ -82,6 +82,19 @@
     width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
     font-size:1.3em;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.25);z-index:200;
     -webkit-tap-highlight-color:transparent;}
+  .vazne-napomene{background:#fffde7;border:1.5px solid #f9a825;border-radius:12px;
+    margin-bottom:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07);}
+  .vazne-napomene-header{background:#f9a825;color:#fff;padding:13px 16px;
+    display:flex;align-items:center;gap:9px;font-weight:700;font-size:1em;cursor:pointer;
+    -webkit-tap-highlight-color:rgba(249,168,37,.15);user-select:none;}
+  .vazne-napomene-header::after{content:'›';font-size:1.4em;margin-left:auto;
+    transition:transform .25s;opacity:.9;}
+  .vazne-napomene-header.open::after{transform:rotate(90deg);}
+  .vazne-napomene-body{padding:14px 16px;display:none;}
+  .vazne-napomene-body.open{display:block;}
+  .vazne-napomene-body ul{margin:6px 0 10px 18px;padding:0;}
+  .vazne-napomene-body li{font-size:.92em;line-height:1.6;color:var(--text);margin-bottom:6px;}
+  .vazne-napomene-body p{font-size:.92em;line-height:1.6;color:var(--text);margin-bottom:6px;}
 </style>
 </head>
 <body>
@@ -129,6 +142,28 @@
     </details></div>
 </nav>
 <main id="content">
+<div class="vazne-napomene">
+  <div class="vazne-napomene-header" id="vn-header" onclick="toggleVN()" role="button" aria-expanded="true">
+    ⚠️ Važne Napomene
+  </div>
+  <div class="vazne-napomene-body open" id="vn-body">
+    <ul>
+      <li>Iz svih receptura, kuvanih jela i obrok salata izbaciti namirnice koje ne konzumirate (svež paradajz, citruse – limun, limetu, pomorandžu)!</li>
+      <li>Iz preporuka obavezno pročitajte deo o razmaku između obroka i detoksikaciji!</li>
+      <li>Nisam bila sigurna da li konzumirate juneće ćevape, pljeskavice i šnicle, pa sam ih povremeno uvrstila u plan ishrane. Ukoliko ne jedete crveno meso, slobodno ih zamenite pilećim ili ćurećim belim mesom. Takođe, u kuvanim jelima u tom slučaju koristite isključivo piletinu ili ćuretinu.</li>
+      <li>Sve gramaže u jelovniku se odnose na termički obrađene namirnice. Kada su kuvana jela u pitanju sami odredite odnos povrća i mesa po ukusu, bitno je da porcija obroka bude kao u jelovniku (uvek možete da smanjite porcije ako Vam je mnogo).</li>
+      <li>Jelovnik je isključivo urađen na osnovu Vaših parametara i Vama prilagođen, prema tome ne može se nikada primenjavati na druge.</li>
+      <li>Pratite jelovnik isključivo kako Vam je napisano. Ukoliko Vam nešto ne odgovara u jelovniku, ne smete sami korigovati ili rotirati obroke ili dane u nedelji, već mene odmah pozovite, a ja ću Vam pravovremeno poslati korekciju svega što zahtevate.</li>
+    </ul>
+    <p><strong>Kada imate kuvano jelo u jelovniku, a niste u prilici da ga pripremite, ovo mogu da budu brzinski zamenski obroci:</strong></p>
+    <ul>
+      <li>Nemasno meso po izboru 200g (pileće belo meso, ćureće belo meso, juneći ćevapi ili pljeskavice) + bareno/grilovano povrće 150g (tikvice, paprike, patlidžan, spanać, blitva) + salata</li>
+      <li>Nemasna riba po izboru 200g (pastrmka, oslić, brancin, orada) + bareno/grilovano povrće 150g (tikvice, paprike, patlidžan, spanać, blitva) + salata</li>
+      <li>Zdrava cezar salata po recepturi (200 g piletine)</li>
+      <li>Mediteranska tuna salata po recepturi (150 g tunjevine)</li>
+    </ul>
+  </div>
+</div>
 
   <details class="week-details" id="week-1">
     <summary class="week-summary">
@@ -365,7 +400,7 @@
       </div>
       <div class="meal-item">
         <span class="meal-label">🌙 Večera</span>
-        <p class="meal-text">Ćureći burger 150g + kukuruz</p>
+        <p class="meal-text">Ćureći burger 150g + kukuruz secerac 100g + salata</p>
       </div>
       </div>
     </details>
@@ -393,7 +428,7 @@
       </div>
       <div class="meal-item">
         <span class="meal-label">🌙 Večera</span>
-        <p class="meal-text">Oslić 200g + 100g grilovanog</p>
+        <p class="meal-text">Oslić 200g + 100g grilovanog povrca po zelji + salata</p>
       </div>
       </div>
     </details>
@@ -421,7 +456,7 @@
       </div>
       <div class="meal-item">
         <span class="meal-label">🌙 Večera</span>
-        <p class="meal-text">Obrok salata od nemasnog sira po</p>
+        <p class="meal-text">Obrok salata od nemasnog sira po recepturi (bez paradajza)</p>
       </div>
       </div>
     </details>
@@ -477,7 +512,7 @@
       </div>
       <div class="meal-item">
         <span class="meal-label">🌙 Večera</span>
-        <p class="meal-text">Salata sa tunom po recepturi (bez</p>
+        <p class="meal-text">Salata sa tunom po recepturi (bez paradajza)</p>
       </div>
       </div>
     </details>
@@ -505,7 +540,7 @@
       </div>
       <div class="meal-item">
         <span class="meal-label">🌙 Večera</span>
-        <p class="meal-text">Integralna testenina po želji iz</p>
+        <p class="meal-text">Integralna testenina po želji po recepturi 350g + salata</p>
       </div>
       </div>
     </details>
@@ -787,7 +822,7 @@
       </div>
       <div class="meal-item">
         <span class="meal-label">🌙 Večera</span>
-        <p class="meal-text">Zdrava cezar salata po recepturi (150 g piletine) - bez</p>
+        <p class="meal-text">Zdrava cezar salata po recepturi (150 g piletine) - bez paradajza</p>
       </div>
       </div>
     </details>
@@ -936,6 +971,13 @@
 </main>
 <a href="#" id="back-to-top" title="Na vrh">↑</a>
 <script>
+function toggleVN(){
+  var h=document.getElementById('vn-header');
+  var b=document.getElementById('vn-body');
+  var open=b.classList.toggle('open');
+  h.classList.toggle('open',open);
+  h.setAttribute('aria-expanded',open);
+}
 (function(){
   var btn=document.getElementById('burger-btn');
   var drawer=document.getElementById('toc-drawer');
