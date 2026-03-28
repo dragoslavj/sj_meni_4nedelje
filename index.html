@@ -96,6 +96,43 @@
   .vazne-napomene-body li{font-size:.92em;line-height:1.6;color:var(--text);margin-bottom:6px;}
   .vazne-napomene-body p{font-size:.92em;line-height:1.6;color:var(--text);margin-bottom:6px;}
 
+  /* Plan ishrane parent section */
+  .plan-ishrane{background:var(--card);border-radius:12px;margin-bottom:14px;overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);border:1px solid var(--border);}
+  .plan-ishrane-header{background:var(--primary);color:white;padding:14px 18px;
+    font-size:1.05em;font-weight:700;cursor:pointer;display:flex;align-items:center;
+    -webkit-tap-highlight-color:rgba(255,255,255,.1);user-select:none;}
+  .plan-ishrane-header::after{content:'›';font-size:1.4em;margin-left:auto;transition:transform .25s;opacity:.8;}
+  .plan-ishrane-header.open::after{transform:rotate(90deg);}
+  .plan-ishrane-body{display:none;padding:8px 0 2px;}
+  .plan-ishrane-body.open{display:block;}
+
+  /* PREPORUKE section */
+  .preporuke{background:#fff8f0;border:1.5px solid var(--accent2);border-radius:12px;
+    margin-bottom:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07);}
+  .preporuke-header{background:var(--accent2);color:#fff;padding:13px 16px;
+    display:flex;align-items:center;gap:9px;font-weight:700;font-size:1em;cursor:pointer;
+    -webkit-tap-highlight-color:rgba(46,125,50,.15);user-select:none;}
+  .preporuke-header::after{content:'›';font-size:1.4em;margin-left:auto;transition:transform .25s;opacity:.9;}
+  .preporuke-header.open::after{transform:rotate(90deg);}
+  .preporuke-body{padding:8px 0;display:none;}
+  .preporuke-body.open{display:block;}
+  .prep-cat{border-bottom:1px solid rgba(46,125,50,.15);}
+  .prep-cat:last-child{border-bottom:none;}
+  .prep-cat-sum{padding:10px 16px;cursor:pointer;list-style:none;
+    display:flex;align-items:center;font-weight:700;font-size:.88em;color:#7b3a00;
+    background:#fff3e0;-webkit-tap-highlight-color:rgba(245,127,23,.08);user-select:none;}
+  .prep-cat-sum::-webkit-details-marker{display:none;}
+  .prep-cat-sum::after{content:'›';font-size:1.2em;color:var(--muted);transition:transform .2s;margin-left:auto;}
+  details[open]>.prep-cat-sum::after{transform:rotate(90deg);}
+  .prep-cat-body{padding:10px 16px 12px;background:white;}
+  .prep-cat-body ul{margin:4px 0 0 16px;padding:0;}
+  .prep-cat-body li{font-size:.88em;line-height:1.65;color:var(--text);margin-bottom:6px;}
+  .prep-cat-body li:last-child{margin-bottom:0;}
+  .prep-cat-body .meal-times{list-style:none;margin-left:0;padding:0;}
+  .prep-cat-body .meal-times li{padding:5px 0;border-bottom:1px solid #f0f0f0;font-size:.88em;}
+  .prep-cat-body .meal-times li:last-child{border-bottom:none;}
+
   /* RECEPTI drawer styles */
   .toc-recepti-header{background:var(--accent2);color:white;padding:11px 16px;
     font-size:.85em;font-weight:700;letter-spacing:.04em;border-top:2px solid rgba(0,0,0,.1);}
@@ -128,7 +165,12 @@
   .recepti-page-section{background:var(--card);border-radius:12px;margin-bottom:14px;overflow:hidden;
     box-shadow:0 2px 8px rgba(0,0,0,.06);border:1px solid var(--border);}
   .recepti-page-header{background:var(--accent2);color:white;padding:14px 18px;
-    font-size:1.05em;font-weight:700;letter-spacing:.04em;}
+    font-size:1.05em;font-weight:700;letter-spacing:.04em;cursor:pointer;
+    display:flex;align-items:center;-webkit-tap-highlight-color:rgba(245,127,23,.15);user-select:none;}
+  .recepti-page-header::after{content:'›';font-size:1.4em;margin-left:auto;transition:transform .25s;opacity:.9;}
+  .recepti-page-header.open::after{transform:rotate(90deg);}
+  .recepti-page-body{display:none;}
+  .recepti-page-body.open{display:block;}
   .rpage-cat{border-bottom:1px solid var(--border);}
   .rpage-cat:last-child{border-bottom:none;}
   .rpage-cat-sum{background:var(--primary);color:white;padding:13px 18px;cursor:pointer;list-style:none;
@@ -489,10 +531,10 @@
 </nav>
 <main id="content">
 <div class="vazne-napomene">
-  <div class="vazne-napomene-header" id="vn-header" onclick="toggleVN()" role="button" aria-expanded="true">
+  <div class="vazne-napomene-header" id="vn-header" onclick="toggleVN()" role="button" aria-expanded="false">
     ⚠️ Važne Napomene
   </div>
-  <div class="vazne-napomene-body open" id="vn-body">
+  <div class="vazne-napomene-body" id="vn-body">
     <ul>
       <li>Iz svih receptura, kuvanih jela i obrok salata izbaciti namirnice koje ne konzumirate (svež paradajz, citruse – limun, limetu, pomorandžu)!</li>
       <li>Iz preporuka obavezno pročitajte deo o razmaku između obroka i detoksikaciji!</li>
@@ -510,6 +552,113 @@
     </ul>
   </div>
 </div>
+
+<div class="preporuke">
+  <div class="preporuke-header" id="prep-header" onclick="togglePrep()" role="button" aria-expanded="false">
+    📋 Saveti
+  </div>
+  <div class="preporuke-body" id="prep-body">
+
+    <details class="prep-cat">
+      <summary class="prep-cat-sum">Raspored ishrane</summary>
+      <div class="prep-cat-body">
+        <ul>
+          <li><strong>5 obroka dnevno:</strong> Doručak &nbsp;–&nbsp; Užina 1 &nbsp;–&nbsp; Ručak &nbsp;–&nbsp; Užina 2 &nbsp;–&nbsp; Večera</li>
+          <li><strong>Razmak između obroka:</strong> 2.5 – 3 sata</li>
+          <li>Užina je obrok – nije grickalica</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="prep-cat">
+      <summary class="prep-cat-sum">Obrok pred spavanje (po potrebi)</summary>
+      <div class="prep-cat-body">
+        <ul>
+          <li>Ako nisi večerala ili si gladna kasnije, možeš uzeti: jogurt (300ml + 2 kašike chia semenki ili mlevenog lana), nemasni sir (250g), tunjevina (60g), 1 jaje + 3 belanca, grilovano povrće (300g), potaž (300ml), salata sa pršutom (100g) + porcija salate uz svaki obrok.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="prep-cat">
+      <summary class="prep-cat-sum">Dnevni raspored obroka (primer)</summary>
+      <div class="prep-cat-body">
+        <ul class="meal-times">
+          <li><strong>08:00</strong> – Doručak &nbsp;&nbsp;<span style="color:var(--muted);font-size:.9em;">Prvi i najvažniji obrok – energija za dan</span></li>
+          <li><strong>11:00</strong> – Užina 1 &nbsp;&nbsp;<span style="color:var(--muted);font-size:.9em;">Ne preskakati – ovo je pun obrok!</span></li>
+          <li><strong>14:00</strong> – Ručak &nbsp;&nbsp;<span style="color:var(--muted);font-size:.9em;">Glavni obrok u danu</span></li>
+          <li><strong>17:00</strong> – Užina 2 &nbsp;&nbsp;<span style="color:var(--muted);font-size:.9em;">Ne preskakati – ovo je pun obrok!</span></li>
+          <li><strong>20:00</strong> – Večera &nbsp;&nbsp;<span style="color:var(--muted);font-size:.9em;">Lagana, ali zasitna</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="prep-cat">
+      <summary class="prep-cat-sum">Suplementacija</summary>
+      <div class="prep-cat-body">
+        <ul>
+          <li><strong>Ujutru – Vitamin C</strong> (u prahu) – Antioksidans koji pomaže u jačanju imuniteta</li>
+          <li><strong>Nakon ručka – Mg Direct</strong> (u kesicama) – Magnesium za opuštanje i bolju probavu</li>
+          <li><strong>Pred spavanje – Omega 3,6,9</strong> (1 tableta) – Zdravlje srca i kože, pomaže u regeneraciji</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="prep-cat">
+      <summary class="prep-cat-sum">Saveti za bolju hidrataciju</summary>
+      <div class="prep-cat-body">
+        <ul>
+          <li><strong>Pij vodu ujutru:</strong> Počni dan sa čašom vode odmah nakon buđenja – pokreće metabolizam i pomaže hidrataciji.</li>
+          <li><strong>Ponesi vodu sa sobom:</strong> Drži bocu vode u torbi kako bi se podsećala da redovno piješ tokom dana.</li>
+          <li><strong>Započni obrok sa vodom:</strong> Čaša vode pre obroka pomaže boljoj probavi i sprečava prejedanje.</li>
+          <li><strong>Slušaj svoje telo:</strong> Umor, česta glavobolja ili tamni urin su signali da trebaš više tečnosti.</li>
+          <li><strong>Biljni čajevi i voda sa limunom:</strong> Ako ti je voda dosadna, dodaj limun ili pij biljne čajeve (nana, kamilica).</li>
+          <li><strong>Ne zaboravi:</strong> Kofein, alkohol i visokokalorični napici dehidriraju telo – konzumiraj ih umereno i uvek uz vodu.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="prep-cat">
+      <summary class="prep-cat-sum">Kako pripremati hranu</summary>
+      <div class="prep-cat-body">
+        <ul>
+          <li><strong>Biraj sveže namirnice:</strong> Manje obrađene namirnice zadržavaju više hranljivih materija.</li>
+          <li><strong>Zdrave tehnike kuvanja:</strong> Kuvanje na pari, pečenje, grilovanje i pirjanje – bez dodatnih masti.</li>
+          <li><strong>Izbegavaj prženje:</strong> Prženje u dubokom ulju dodaje nezdrave masti i kalorije.</li>
+        </ul>
+        <ul style="margin-top:10px;">
+          <li><strong>Kuvanje na pari</strong> – Zadržava vitamine, idealno za povrće, ribu i piletinu.</li>
+          <li><strong>Pečenje</strong> – Ravnomerno kuvanje bez dodatnih masti. Dobro za povrće, meso i ribu.</li>
+          <li><strong>Grilovanje</strong> – Smanjuje količinu masti. Idealno za meso, ribu i povrće, marinirajte pre grilovanja.</li>
+          <li><strong>Pirjanje</strong> – Brzo kuvanje, zadržava hranljive materije. Koristite maslinovo ulje na srednjoj vatri.</li>
+          <li><strong>Blanširanje</strong> – Očuva boju i hrskavost povrća. Kuvajte u ključaloj vodi pa odmah stavite u ledenu vodu.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="prep-cat">
+      <summary class="prep-cat-sum">Izbor namirnica</summary>
+      <div class="prep-cat-body">
+        <ul>
+          <li><strong>Žitarice:</strong> Integralni proizvodi – pšenica, ječam, ovas, integralni hleb, ovsene pahuljice. Izbegavati beli hleb i testenine sa jajima.</li>
+          <li><strong>Meso:</strong> Pileće i ćureće belo meso, posna junetina, teletina. Izbegavati svinjetinu, jagnjetinu i prerađevine.</li>
+          <li><strong>Riba:</strong> Nemasna riba – pastrmka, oslić, brancin, orada, smuđ, škarpina, bakalar. Izbegavati soma, šarana, pangasius.</li>
+          <li><strong>Jaja:</strong> Preporučuju se.</li>
+          <li><strong>Mlečni proizvodi:</strong> Jogurt do 1% mm, kefir, nemasni sir (5.5% mm), kiselo mleko (2.8% mm), grčki jogurt, mocarela i gauda povremeno. Izbegavati tvrde i dimljene sireve.</li>
+          <li><strong>Voće:</strong> Jabuke, kruške, citrusi, bobičasto voće, breskva, nektarina, dinja, lubenica, šljive, kivi, nar. Jabuke i kruške možeš konzumirati kao kompot, pečene ili sveže bez kore.</li>
+          <li><strong>Povrće:</strong> Prednost svežem povrću i salatama (zelena salata, baby spanać, iceberg, rukola, krastavac). Izbegavati konzervisano povrće.</li>
+          <li><strong>Masti i ulja:</strong> Samo hladno ceđeno maslinovo i laneno ulje.</li>
+          <li><strong>Šećer i zaslađivači:</strong> Izbegavati beli i žuti šećer. Koristiti prirodne zaslađivače – agava ili stevia.</li>
+          <li><strong>Začini:</strong> Jabukovo sirće, limunov sok, biljni začini (origano, peršun), kalijumova so. Izbegavati kuhinjsku so, majonez, kečap.</li>
+        </ul>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+<div class="plan-ishrane">
+  <div class="plan-ishrane-header open" id="plan-header" onclick="togglePlan()" role="button" aria-expanded="true">📅 Plan ishrane za 4 nedelje</div>
+  <div class="plan-ishrane-body open" id="plan-body">
 
   <details class="week-details" id="week-1">
     <summary class="week-summary">
@@ -1315,8 +1464,12 @@
     </div>
   </details>
 
+  </div>
+</div>
+
 <section id="recepti-section" class="recepti-page-section">
-  <div class="recepti-page-header">🍴 RECEPTI</div>
+  <div class="recepti-page-header" id="recepti-header" onclick="toggleRecepti()" role="button" aria-expanded="false">🍴 RECEPTI</div>
+  <div class="recepti-page-body" id="recepti-body">
   <details class="rpage-cat" id="rcat-hleb">
     <summary class="rpage-cat-sum">HLEB</summary>
     <div class="rpage-cat-body">
@@ -5320,6 +5473,7 @@
       </div>
     </div>
   </details>
+  </div>
 </section>
 </main>
 <a href="#" id="back-to-top" title="Na vrh">↑</a>
@@ -5327,6 +5481,27 @@
 function toggleVN(){
   var h=document.getElementById('vn-header');
   var b=document.getElementById('vn-body');
+  var open=b.classList.toggle('open');
+  h.classList.toggle('open',open);
+  h.setAttribute('aria-expanded',open);
+}
+function togglePrep(){
+  var h=document.getElementById('prep-header');
+  var b=document.getElementById('prep-body');
+  var open=b.classList.toggle('open');
+  h.classList.toggle('open',open);
+  h.setAttribute('aria-expanded',open);
+}
+function togglePlan(){
+  var h=document.getElementById('plan-header');
+  var b=document.getElementById('plan-body');
+  var open=b.classList.toggle('open');
+  h.classList.toggle('open',open);
+  h.setAttribute('aria-expanded',open);
+}
+function toggleRecepti(){
+  var h=document.getElementById('recepti-header');
+  var b=document.getElementById('recepti-body');
   var open=b.classList.toggle('open');
   h.classList.toggle('open',open);
   h.setAttribute('aria-expanded',open);
@@ -5343,7 +5518,18 @@ function toggleVN(){
     document.body.style.overflow='';}
   btn.addEventListener('click',function(){drawer.classList.contains('open')?closeDrawer():openDrawer();});
   overlay.addEventListener('click',closeDrawer);
-  drawer.addEventListener('click',function(e){if(e.target.closest('a[href]'))closeDrawer();});
+  drawer.addEventListener('click',function(e){
+    var a=e.target.closest('a[href]');
+    if(a){
+      var href=a.getAttribute('href');
+      if(href&&href.startsWith('#rec-')){
+        var rb=document.getElementById('recepti-body');
+        var rh=document.getElementById('recepti-header');
+        if(rb&&!rb.classList.contains('open')){rb.classList.add('open');rh.classList.add('open');rh.setAttribute('aria-expanded','true');}
+      }
+      closeDrawer();
+    }
+  });
 })();
 </script>
 </body>
